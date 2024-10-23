@@ -89,7 +89,10 @@ $(document).ready(function(){
                 qrbox: { width: 250, height: 250 }  // Bounded box size
             },
             (decodedText, decodedResult) => {
-                console.log(`Decoded text: ${decodedText}`);
+                // console.log(`Decoded text: ${decodedText}`);
+
+                new bootstrap.Offcanvas(document.getElementById('offCanvas')).hide();
+                alert(decodedText);
             },
             (errorMessage) => {
                 // Ignore errors
