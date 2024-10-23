@@ -70,7 +70,8 @@ $(document).ready(function(){
     function openQrScanner(){
         Html5Qrcode.getCameras().then(devices => {
             if (devices && devices.length) {
-                cameraId = devices[0].id;
+                const cId= (devices.length>1)?1:0;
+                cameraId = devices[cId].id;
                 startQrScanner();
             }
         }).catch(err => {
