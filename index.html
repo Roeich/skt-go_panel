@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>JKTGO - Panel</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/common.css"> -->
+    <link rel="stylesheet" href="assets/css/panel.css">
+</head>
+
+<body>
+    <!-- _______________ start header area _______________  -->
+    <header class="header sticky-top">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="pe-3">
+                    <a class="d-inline-block" href="index.html">
+                        <img class="header_logo" src="assets/img/jkt-go.png" alt="jkt-go">
+                    </a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="pe-3 me-3 border-end d-none d-lg-block">
+                        <span class="fs_12 c_gray">Powered by</span> <a class="d-inline-block" href="#"><img class="header_vastechLogo" src="assets/img/vastech.png" alt="vastech"></a>
+                    </div>
+
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle header_userBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div>
+                                    <div class="header_userImgBox">
+                                        <img class="header_userImg" src="assets/img/user.png" alt="MW">
+                                    </div>
+                                </div>
+                                <div class="px-2 d-none d-lg-block">
+                                    <div class="fs_12 fw-bold">Morgan Wallen</div>
+                                    <div class="fs_10 c_gray">Admin</div>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Setting</a></li>
+                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- _______________ end header area _______________  -->
+
+    <!-- _______________ start main area _______________  -->
+    <main class="main">
+        <div class="container">
+            <div class="main_actContainer">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="row gy-3 gx_10">
+                            <div class="col-sm-6">
+                                <button class="btn btn_xxl w-100 btn_secondary" type="button" data-bs-toggle="modal" data-bs-target="#manualModal">Input Manual</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn_xxl w-100 btn_primary open_camera_btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">Open Camera</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- manual input form -->
+    <div class="modal fade modal_bottom" id="manualModal" tabindex="-1" aria-labelledby="manualModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs_14" id="manualModalLabel">Input Manual</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex mb_20">
+                        <div class="pe-3 flex-grow-1">
+                            <input class="form-control search_input" type="search" placeholder="Input Booking Code" value="7781GV3">
+                        </div>
+                        <div>
+                            <button class="btn rounded-pill btn_primary search_btn" type="button">Search</button>
+                        </div>
+                    </div>
+                    <div class="search_result">
+                        <!-- Javscript will generate code like this
+                            <div class="search_item">
+                                <div class="d-flex justify-content-between">
+                                    <div class="pe-2 fw-bold">
+                                        ✨ VIP Ticket
+                                    </div>
+                                    <div>
+                                        Kode Booking: <b>7781GV3</b>
+                                    </div>
+                                </div>
+                                <div class="fs_14">
+                                <i class="icon icon_calender"></i> 20 Jan 2024
+                                </div>
+                                <div>
+                                    <div class="fs_14 mb-1">Damian Rhino</div>
+                                    <div class="fs_12 d-flex flex-wrap">
+                                        <div class="pe-2 me-2 border-end"><a href="tel:08123456789"><i class="icon icon_phone"></i> 08123456789</a></div>
+                                        <div class="pe-2 me-2 border-end"><a href="mailto:damian@mail.com"><i class="icon icon_mailbox"></i> damian@mail.com</a></div>
+                                        <div class="pe-2 me-2 border-end"><i class="icon icon_gender"></i> Male</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="alert alert_danger">
+                                        Tanggal tidak sesuai
+                                    </div>
+                                </div>
+                            </div> 
+                        -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row gy-3 gx_10">
+                        <div class="col-6">
+                            <button class="btn w-100 rounded-pill btn_secondary" type="reset" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn w-100 rounded-pill btn_primary submit_btn disabled" type="button">Check In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- camera modal -->
+    
+    
+    <div class="offcanvas offcanvas-bottom offcanvas_full" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <!-- <div class="offcanvas-header">
+        </div> -->
+        <div class="offcanvas-body p-0">
+            <div class="position-absolute top-0 left-0 z-3 w-100 p-3">
+                <div class="container">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-light shadow-none border-0 stop_scan_btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-light shadow-none border-0">
+                            Flash
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="reader" width="600px"></div>
+        </div>
+    </div>
+    <!-- _______________ end main area _______________  -->
+
+
+    <!-- ................ scripts ................ -->
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/html5-qrcode.min.js"></script>
+    <script src="assets/js/panel.js"></script>
+</body>
+
+</html>
