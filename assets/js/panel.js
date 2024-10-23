@@ -91,7 +91,7 @@ $(document).ready(function(){
             (decodedText, decodedResult) => {
                 // console.log(`Decoded text: ${decodedText}`);
 
-                new bootstrap.Offcanvas(document.getElementById('offCanvas')).hide();
+                // new bootstrap.Offcanvas(document.getElementById('offCanvas')).hide();
                 alert(decodedText);
             },
             (errorMessage) => {
