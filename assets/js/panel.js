@@ -117,7 +117,11 @@ $(document).ready(function(){
                 searchTicket("#scanInputModal",decodedText);
                 $("#scanInputModal").modal("show");
 
-                // console.log(`Decoded text: ${decodedText}`);
+
+                var offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('scanInputModal'));
+                if (offcanvas) {
+                    offcanvas.hide();
+                }
             },
             (errorMessage) => {
                 // Ignore errors
