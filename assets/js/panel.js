@@ -146,9 +146,9 @@ $(document).ready(function(){
         flashlightOn = !flashlightOn; 
         powerTorch(flashlightOn);
         if(flashlightOn){
-            $(this).addClass("active");
+            $(".toggle_flashlight_btn").addClass("active");
         }else{
-            $(this).removeClass("active");
+            $(".toggle_flashlight_btn").removeClass("active");
         }
     });
 });
