@@ -112,9 +112,12 @@ $(document).ready(function(){
             },
             (decodedText, decodedResult) => {
                 html5QrCode.stop();
-                console.log(`Decoded text: ${decodedText}`);
-
+                $("#offcanvas").offcanvas("hide");
+                
                 searchTicket("#scanInputModal",decodedText);
+                $("#scanInputModal").modal("show");
+
+                // console.log(`Decoded text: ${decodedText}`);
             },
             (errorMessage) => {
                 // Ignore errors
