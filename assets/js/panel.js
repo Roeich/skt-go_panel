@@ -99,14 +99,6 @@ $(document).ready(function(){
         });
     }
 
-    // $("#startScanner").click(() => {
-    //     if (!cameraId) {
-    //         console.error("No camera selected.");
-    //         return;
-    //     }
-    //     startQrScanner();
-    // });
-
     function startQrScanner() {
         html5QrCode.start(
             cameraId,
@@ -125,11 +117,16 @@ $(document).ready(function(){
             console.error("Start failed: ", err);
         });
     };
-    $(".open_camera_btn").click(function(){
+    
+    $(".open_camera_btn").click(() => {
         openQrScanner();
     });
-    $(".stop_scan_btn").click(function(){
-        html5QrCode.stop();
+    $(".stop_scan_btn").click(() => {
+        html5QrCode.stop().then(() => {
+            console.log("QR scanner stopped.");
+        }).catch(err => {
+            console.error("Stop failed: ", err);
+        });
     });
 
 });
