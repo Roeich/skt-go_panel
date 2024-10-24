@@ -89,7 +89,9 @@ $(document).ready(function(){
 
                 cameraSelect.change(() => {
                     cameraId = cameraSelect.val(); // Update cameraId when selection changes
-                    startQrScanner();
+                    html5QrCode.stop().then(() => {
+                        startQrScanner(); 
+                    });
                     alert(cameraId);
                 });
 
