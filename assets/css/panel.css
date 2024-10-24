@@ -314,6 +314,7 @@ a:hover{
   object-fit: contain !important;
 }
 .toggle_flashlight_btn.active{
+  color: var(--c_secondary);
   background: var(--bg_white) !important;
 }
 .toggle_flashlight_btn.active i{
