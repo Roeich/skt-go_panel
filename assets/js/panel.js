@@ -122,6 +122,14 @@ $(document).ready(function(){
         });
     };
 
+    function powerTorch(powerOn){    
+        if(html5QrCode.getState() === Html5QrcodeScannerState.SCANNING || html5QrCode.getState() === Html5QrcodeScannerState.PAUSED){
+            html5QrCode.applyVideoConstraints({
+                advanced: [{torch: powerOn}]
+            });
+        }
+    };
+
     $(".open_camera_btn").click(() => {
         openQrScanner();
     });
@@ -134,19 +142,9 @@ $(document).ready(function(){
     });
 
 
-    let flashlightOn = false; // Keep track of the flashlight state
+    let flashlightOn = false; 
     $(".toggle_flashlight_btn").click(() => {
-        if (cameraId) {
-            flashlightOn = !flashlightOn; // Toggle state
-            html5QrCode.toggleTorch(flashlightOn)
-                .then(() => {
-                    console.log(flashlightOn ? "Flashlight turned on." : "Flashlight turned off.");
-                })
-                .catch(err => {
-                    console.error("Failed to toggle flashlight: ", err);
-                });
-        } else {
-            console.error("No camera selected.");
-        }
+        flashlightOn = !flashlightOn; 
+        powerTorch(flashlightOn);
     });
 });
