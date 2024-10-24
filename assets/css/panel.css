@@ -130,7 +130,8 @@ a:hover{
 }
 .form-control:focus{
   border-color: var(--c_primary);
-  box-shadow: 0 0 0 .25rem rgba(255, 207, 1, 0.25);
+  -webkit-box-shadow: 0 0 0 .25rem rgba(255, 207, 1, 0.25);
+          box-shadow: 0 0 0 .25rem rgba(255, 207, 1, 0.25);
 }
 .btn{
   font-size: var(--fs_14);
@@ -141,13 +142,20 @@ a:hover{
   -2px -3px 0px 0px var(--c_secondary) inset;
   box-shadow: 2px 3px 0px 0px var(--bg_white) inset,
   -2px -3px 0px 0px var(--c_secondary) inset;
+  -webkit-transition: -webkit-transform 0.3s background-color 0.3s;
+  transition: -webkit-transform 0.3s background-color 0.3s;
+  -o-transition: transform 0.3s background-color 0.3s;
   transition: transform 0.3s background-color 0.3s;
+  transition: transform 0.3s background-color 0.3s, -webkit-transform 0.3s background-color 0.3s;
 }
 .btn:not(.dropdown-toggle):active{
-  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+      -ms-transform: scale(0.98);
+          transform: scale(0.98);
 }
 .btn.disabled{
-  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 .btn_xxl{
   padding: 2.8571em;
@@ -203,19 +211,26 @@ a:hover{
 .header_logo{
   width: 5.1875rem;
   height: 1.5625rem;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header_vastechLogo{
   width: 4.5rem;
   height: 1.625rem;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header_userBtn{
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: none;
   padding: 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: left;
 }
 .header_userImgBox{
@@ -230,10 +245,12 @@ a:hover{
   min-height: 2.8em;
   border-radius: 50%;
   background-color: var(--bg_success);
+  display: -ms-grid;
   display: grid;
   place-items: center;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border: none;
 }
 
@@ -256,9 +273,16 @@ a:hover{
   padding: 1.5rem 0rem;
 }
 .main_actContainer{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: calc(100svh - 6.8671rem);
 }
 
@@ -288,8 +312,13 @@ a:hover{
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 .search_item{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 1rem;
   border: 1px solid var(--c_secondary);
   padding: var(--p_12);
@@ -311,7 +340,8 @@ a:hover{
 #reader video{
   width: 100% !important;
   height: 100svh !important;
-  object-fit: contain !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }
 .toggle_flashlight_btn.active{
   color: var(--c_secondary);
@@ -323,15 +353,23 @@ a:hover{
 @media(max-width:575.98px){
   .modal_bottom .modal-dialog{
     margin: 0rem;
-    align-items: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     min-height: 100svh;
-    transform: translate(0,50px);
+    -webkit-transform: translate(0,50px);
+        -ms-transform: translate(0,50px);
+            transform: translate(0,50px);
   }
   .modal_bottom.modal.fade .modal-dialog{
-    transform: translate(0,50px);
+    -webkit-transform: translate(0,50px);
+        -ms-transform: translate(0,50px);
+            transform: translate(0,50px);
   }
   .modal_bottom.modal.show .modal-dialog {
-    transform: translate(0,0px);
+    -webkit-transform: translate(0,0px);
+        -ms-transform: translate(0,0px);
+            transform: translate(0,0px);
   }
   .modal_bottom .modal-content {
     border-radius: 1.5rem 1.5rem 0rem 0rem;
