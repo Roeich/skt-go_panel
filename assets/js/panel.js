@@ -132,4 +132,21 @@ $(document).ready(function(){
             console.error("Stop failed: ", err);
         });
     });
+
+
+    let flashlightOn = false; // Keep track of the flashlight state
+    $(".toggle_flashlight_btn").click(() => {
+        if (cameraId) {
+            flashlightOn = !flashlightOn; // Toggle state
+            html5QrCode.toggleTorch(flashlightOn)
+                .then(() => {
+                    console.log(flashlightOn ? "Flashlight turned on." : "Flashlight turned off.");
+                })
+                .catch(err => {
+                    console.error("Failed to toggle flashlight: ", err);
+                });
+        } else {
+            console.error("No camera selected.");
+        }
+    });
 });
