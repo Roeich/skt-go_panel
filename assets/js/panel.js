@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $(".search_btn").on("click",function(){
         let bookingCode=$(".search_input").val().trim();
-        searchTicket(bookingCode)
+        searchTicket("#manualModal",bookingCode);
     });
 
-    function searchTicket(bookingCode){
+    function searchTicket(containerSelector,bookingCode){
         // if booking code match load search item
         if(bookingCode==="7781GV3"){
 
@@ -56,11 +56,11 @@ $(document).ready(function(){
             `;
 
             // inserting result items
-            $(".search_result").html(searchItem);
+            $(`${containerSelector} .search_result`).html(searchItem);
             
         }else{
             let notFoundMsg=`<div class="fs_14 c_danger mb_20">😅 Oops, kode booking tidak ditemukan</div>`;
-            $(".search_result").html(notFoundMsg);
+            $(`${containerSelector} .search_result`).html(notFoundMsg);
         }
 
     }
@@ -108,11 +108,13 @@ $(document).ready(function(){
             {
                 fps: 10,
                 qrbox: { width: 250, height: 250 } // Bounded box size
-                ,showTorchButtonIfSupported: true
+                // ,showTorchButtonIfSupported: true
             },
             (decodedText, decodedResult) => {
                 html5QrCode.stop();
                 console.log(`Decoded text: ${decodedText}`);
+
+                searchTicket("#scanInputModal",decodedText);
             },
             (errorMessage) => {
                 // Ignore errors

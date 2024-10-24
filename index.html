@@ -75,7 +75,7 @@
         </div>
     </main>
 
-    <!-- manual input form -->
+    <!-- manual input form modal -->
     <div class="modal fade modal_bottom" id="manualModal" tabindex="-1" aria-labelledby="manualModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -129,6 +129,59 @@
                         </div>
                         <div class="col-6">
                             <button class="btn w-100 rounded-pill btn_primary submit_btn disabled" type="button">Check In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- manual input form modal -->
+    <div class="modal fade modal_bottom" id="scanInputModal" tabindex="-1" aria-labelledby="scanInputModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs_14" id="scanInputModalLabel">Kode Booking: <b>7781GV3</b></h2>
+                </div>
+                <div class="modal-body">
+                    <div class="search_result">
+                        <!-- Javscript will generate code like this
+                            <div class="search_item">
+                                <div class="d-flex justify-content-between">
+                                    <div class="pe-2 fw-bold">
+                                        ✨ VIP Ticket
+                                    </div>
+                                    <div>
+                                        Kode Booking: <b>7781GV3</b>
+                                    </div>
+                                </div>
+                                <div class="fs_14">
+                                <i class="icon icon_calender"></i> 20 Jan 2024
+                                </div>
+                                <div>
+                                    <div class="fs_14 mb-1">Damian Rhino</div>
+                                    <div class="fs_12 d-flex flex-wrap">
+                                        <div class="pe-2 me-2 border-end"><a href="tel:08123456789"><i class="icon icon_phone"></i> 08123456789</a></div>
+                                        <div class="pe-2 me-2 border-end"><a href="mailto:damian@mail.com"><i class="icon icon_mailbox"></i> damian@mail.com</a></div>
+                                        <div class="pe-2 me-2 border-end"><i class="icon icon_gender"></i> Male</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="alert alert_danger">
+                                        Tanggal tidak sesuai
+                                    </div>
+                                </div>
+                            </div> 
+                        -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row gy-3 gx_10">
+                        <div class="col-6">
+                            <button class="btn w-100 rounded-pill btn_danger" type="button">Decline</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn w-100 rounded-pill btn_primary submit_btn" type="button">Check In</button>
                         </div>
                     </div>
                 </div>
