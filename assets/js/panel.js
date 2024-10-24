@@ -141,10 +141,14 @@ $(document).ready(function(){
         });
     });
 
-
     let flashlightOn = false; 
     $(".toggle_flashlight_btn").click(() => {
         flashlightOn = !flashlightOn; 
         powerTorch(flashlightOn);
+        if(flashlightOn){
+            $(this).addClass("active");
+        }else{
+            $(this).removeClass("active");
+        }
     });
 });

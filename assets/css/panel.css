@@ -314,7 +314,10 @@ a:hover{
   object-fit: contain !important;
 }
 .toggle_flashlight_btn.active{
-  background-color: var(--bg_primary);
+  background-color: var(--bg_white);
+}
+.toggle_flashlight_btn.active i{
+  color: var(--c_primary);
 }
 @media(max-width:575.98px){
   .modal_bottom .modal-dialog{
