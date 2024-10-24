@@ -127,10 +127,6 @@ $(document).ready(function(){
             html5QrCode.applyVideoConstraints({
                 advanced: [{torch: powerOn}]
             });
-
-            $(".toggle_flashlight_btn").addClass("active");
-        }else{
-            $(".toggle_flashlight_btn").removeClass("active");
         }
     };
 
@@ -149,5 +145,10 @@ $(document).ready(function(){
     $(".toggle_flashlight_btn").click(() => {
         flashlightOn = !flashlightOn; 
         powerTorch(flashlightOn);
+        if(flashlightOn){
+            $(".toggle_flashlight_btn").addClass("active");
+        }else{
+            $(".toggle_flashlight_btn").removeClass("active");
+        }
     });
 });
