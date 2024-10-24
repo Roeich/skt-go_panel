@@ -92,7 +92,6 @@ $(document).ready(function(){
                     html5QrCode.stop().then(() => {
                         startQrScanner(); 
                     });
-                    alert(cameraId);
                 });
 
 
@@ -109,6 +108,7 @@ $(document).ready(function(){
             {
                 fps: 10,
                 qrbox: { width: 250, height: 250 } // Bounded box size
+                ,showTorchButtonIfSupported: true
             },
             (decodedText, decodedResult) => {
                 html5QrCode.stop();
@@ -132,5 +132,4 @@ $(document).ready(function(){
             console.error("Stop failed: ", err);
         });
     });
-
 });
