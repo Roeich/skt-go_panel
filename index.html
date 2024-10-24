@@ -59,7 +59,7 @@
         <div class="container">
             <div class="main_actContainer">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6">
+                    <div class="col-md-10 col-lg-8 col-xl-6">
                         <div class="row gy-3 gx_10">
                             <div class="col-sm-6">
                                 <button class="btn btn_xxl w-100 btn_secondary" type="button" data-bs-toggle="modal" data-bs-target="#manualModal">Input Manual</button>
@@ -135,12 +135,8 @@
         </div>
     </div>
 
-    <!-- camera modal -->
-    
-    
+    <!-- scanner offcanvas -->
     <div class="offcanvas offcanvas-bottom offcanvas_full" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-        <!-- <div class="offcanvas-header">
-        </div> -->
         <div class="offcanvas-body p-0">
             <div class="position-absolute top-0 left-0 z-3 w-100 p-3">
                 <div class="container">
@@ -153,6 +149,18 @@
                         </button>
                     </div>
                 </div>
+            </div>
+            <div class="position-absolute bottom-0 left-0 z-3 w-100 p-3 text-end">
+               <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-6 col-lg-4">
+                            <div id="cameraSelectContainer" class="text-end">
+                                <label for="cameraSelect" class="text-black mb-2">Choose Camera:</label>
+                                <select id="cameraSelect" class="form-select"></select>
+                            </div>
+                        </div>
+                    </div>
+               </div>
             </div>
             <div id="reader" width="600px"></div>
         </div>

@@ -67,11 +67,31 @@ $(document).ready(function(){
 
     // .......... control scanning
     var cameraId;
-    function openQrScanner(){
+    const html5QrCode = new Html5Qrcode("reader");
+
+    function openQrScanner() {
         Html5Qrcode.getCameras().then(devices => {
             if (devices && devices.length) {
-                const cId= (devices.length>1)?1:0;
-                cameraId = devices[cId].id;
+                const cameraSelect = $("#cameraSelect");
+                cameraSelect.empty();
+
+                let backCamera = devices.find(device => device.label.toLowerCase().includes("back"));
+                let frontCamera = devices.find(device => device.label.toLowerCase().includes("front"));
+
+                // Prioritize back camera by default
+                cameraId = backCamera ? backCamera.id : devices[0].id;
+
+                devices.forEach((device) => {
+                    cameraSelect.append(new Option(device.label, device.id));
+                });
+
+                cameraSelect.val(cameraId); // Set the selected camera
+
+                cameraSelect.change(() => {
+                    cameraId = cameraSelect.val(); // Update cameraId when selection changes
+                });
+
+
                 startQrScanner();
             }
         }).catch(err => {
@@ -79,20 +99,24 @@ $(document).ready(function(){
         });
     }
 
-    const html5QrCode = new Html5Qrcode("reader");
+    // $("#startScanner").click(() => {
+    //     if (!cameraId) {
+    //         console.error("No camera selected.");
+    //         return;
+    //     }
+    //     startQrScanner();
+    // });
+
     function startQrScanner() {
-        // html5QrCode = new Html5Qrcode("reader");
         html5QrCode.start(
-            cameraId, 
+            cameraId,
             {
-                fps: 10,   
-                qrbox: { width: 250, height: 250 }  // Bounded box size
+                fps: 10,
+                qrbox: { width: 250, height: 250 } // Bounded box size
             },
             (decodedText, decodedResult) => {
-                // console.log(`Decoded text: ${decodedText}`);
-
-                // new bootstrap.Offcanvas(document.getElementById('offCanvas')).hide();
-                alert(decodedText);
+                html5QrCode.stop();
+                console.log(`Decoded text: ${decodedText}`);
             },
             (errorMessage) => {
                 // Ignore errors
@@ -101,34 +125,11 @@ $(document).ready(function(){
             console.error("Start failed: ", err);
         });
     };
-
     $(".open_camera_btn").click(function(){
         openQrScanner();
     });
-
     $(".stop_scan_btn").click(function(){
-        html5QrCode.stop().then((ignore) => {
-            // QR Code scanning is stopped.
-        }).catch((err) => {
-            // Stop failed, handle it.
-        });
+        html5QrCode.stop();
     });
 
-
-    // function onScanSuccess(decodedText, decodedResult) {
-    //     // handle the scanned code as you like, for example:
-    //     console.log(`Code matched = ${decodedText}`, decodedResult);
-    //   }
-      
-    //   function onScanFailure(error) {
-    //     // handle scan failure, usually better to ignore and keep scanning.
-    //     // for example:
-    //     console.warn(`Code scan error = ${error}`);
-    //   }
-      
-    //   let html5QrcodeScanner = new Html5QrcodeScanner(
-    //     "reader",
-    //     { fps: 10, qrbox: {width: 250, height: 250} },
-    //     /* verbose= */ false);
-    //   html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-})
+});
