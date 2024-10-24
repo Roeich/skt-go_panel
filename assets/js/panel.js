@@ -89,6 +89,7 @@ $(document).ready(function(){
 
                 cameraSelect.change(() => {
                     cameraId = cameraSelect.val(); // Update cameraId when selection changes
+                    startQrScanner();
                 });
 
 
@@ -117,7 +118,7 @@ $(document).ready(function(){
             console.error("Start failed: ", err);
         });
     };
-    
+
     $(".open_camera_btn").click(() => {
         openQrScanner();
     });
